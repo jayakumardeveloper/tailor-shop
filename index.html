@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEENU Tailor Shop — Chudithar Best · Puducherry</title>
+<meta name="description" content="SEENU Tailor Shop in Velrampet, Puducherry — expert tailoring for chudithars, blouses, and all types of dresses. Perfect stitching and a flawless fit.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   AMÉTHYSTE — Design System
+   Palette: dark-amethyst / twilight-indigo / blushed-brick /
+            midnight-violet / almond-silk
+   Spacing: 8px base scale
+   ============================================================ */
+:root{
+  --amethyst:      #2A1C58;
+  --indigo:        #2C3261;
+  --brick:         #C03F47;
+  --brick-soft:    #d9565e;
+  --violet:        #3B1734;
+  --silk:          #C9B1A4;
+  --silk-light:    #E8DCD4;
+  --cream:         #F6F0EB;
+  --ink:           #1C1236;
+  --ink-deep:      #150D2B;
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body:    "Outfit", "Segoe UI", sans-serif;
+
+  --s1: 8px;  --s2: 16px; --s3: 24px; --s4: 32px;
+  --s5: 40px; --s6: 48px; --s8: 64px; --s10: 80px; --s12: 96px;
+
+  --radius-sm: 12px;
+  --radius:    20px;
+  --radius-lg: 28px;
+
+  --shadow-sm: 0 4px 16px rgba(21, 13, 43, .10);
+  --shadow:    0 12px 40px rgba(21, 13, 43, .16);
+  --shadow-lg: 0 24px 64px rgba(21, 13, 43, .28);
+
+  --ease: cubic-bezier(.22,.61,.36,1);
+  --maxw: 1200px;
+}
+
+*,*::before,*::after{ margin:0; padding:0; box-sizing:border-box; }
+
+html{ scroll-behavior:smooth; }
+
+body{
+  font-family:var(--font-body);
+  font-weight:300;
+  color:var(--ink);
+  background:var(--cream);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+img{ max-width:100%; display:block; }
+
+.container{
+  max-width:var(--maxw);
+  margin-inline:auto;
+  padding-inline:var(--s3);
+}
+
+section{ padding-block:var(--s12); }
+
+/* ---------- Typography ---------- */
+h1,h2,h3{ font-family:var(--font-display); font-weight:500; line-height:1.15; }
+
+.eyebrow{
+  display:inline-flex; align-items:center; gap:var(--s2);
+  font-size:.78rem; font-weight:600; letter-spacing:.22em;
+  text-transform:uppercase; color:var(--brick);
+  margin-bottom:var(--s2);
+}
+.eyebrow::before{
+  content:""; width:32px; height:1.5px; background:var(--brick);
+}
+
+.section-head{ max-width:560px; margin-bottom:var(--s8); }
+.section-head.center{ margin-inline:auto; text-align:center; }
+.section-head.center .eyebrow{ justify-content:center; }
+.section-head.center .eyebrow::after{
+  content:""; width:32px; height:1.5px; background:var(--brick);
+}
+.section-head h2{ font-size:clamp(1.9rem, 3.4vw, 2.75rem); color:var(--amethyst); }
+.section-head p{ margin-top:var(--s2); color:#5c5470; font-size:1.05rem; }
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-flex; align-items:center; gap:10px;
+  padding:14px 32px; border:0; border-radius:999px;
+  font-family:var(--font-body); font-size:.95rem; font-weight:500;
+  letter-spacing:.03em; text-decoration:none; cursor:pointer;
+  transition:transform .35s var(--ease), box-shadow .35s var(--ease), background .35s var(--ease);
+}
+.btn svg{ transition:transform .35s var(--ease); }
+.btn:hover svg{ transform:translateX(4px); }
+
+.btn-primary{
+  background:var(--brick); color:#fff;
+  box-shadow:0 10px 28px rgba(192,63,71,.35);
+}
+.btn-primary:hover{
+  background:var(--brick-soft);
+  transform:translateY(-2px);
+  box-shadow:0 16px 36px rgba(192,63,71,.45);
+}
+
+.btn-ghost{
+  background:transparent; color:var(--silk-light);
+  border:1.5px solid rgba(201,177,164,.45);
+}
+.btn-ghost:hover{
+  border-color:var(--silk);
+  background:rgba(201,177,164,.08);
+  transform:translateY(-2px);
+}
+
+.btn-dark{
+  background:var(--amethyst); color:var(--silk-light);
+  box-shadow:var(--shadow-sm);
+}
+.btn-dark:hover{
+  background:var(--indigo);
+  transform:translateY(-2px);
+  box-shadow:var(--shadow);
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.site-header{
+  position:fixed; inset:0 0 auto 0; z-index:100;
+  transition:background .4s var(--ease), box-shadow .4s var(--ease), padding .4s var(--ease);
+  padding-block:var(--s3);
+}
+.site-header.scrolled{
+  background:rgba(21,13,43,.88);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  box-shadow:0 8px 32px rgba(21,13,43,.35);
+  padding-block:var(--s2);
+}
+.nav-wrap{
+  display:flex; align-items:center; justify-content:space-between; gap:var(--s3);
+}
+.logo{
+  font-family:var(--font-display); font-size:1.45rem; font-weight:600;
+  color:var(--silk-light); text-decoration:none; letter-spacing:.02em;
+}
+.logo em{ font-style:normal; color:var(--brick-soft); }
+
+.nav-links{
+  display:flex; gap:var(--s4); list-style:none;
+}
+.nav-links a{
+  position:relative; color:rgba(232,220,212,.85); text-decoration:none;
+  font-size:.92rem; font-weight:400; letter-spacing:.04em;
+  padding-block:4px; transition:color .3s;
+}
+.nav-links a::after{
+  content:""; position:absolute; left:0; bottom:0; width:0; height:1.5px;
+  background:var(--brick-soft); transition:width .35s var(--ease);
+}
+.nav-links a:hover{ color:#fff; }
+.nav-links a:hover::after, .nav-links a.active::after{ width:100%; }
+
+.nav-cta{ display:flex; align-items:center; gap:var(--s2); }
+.nav-cta .btn{ padding:10px 24px; font-size:.88rem; }
+
+.nav-toggle{
+  display:none; flex-direction:column; gap:5px;
+  background:none; border:0; cursor:pointer; padding:8px; z-index:110;
+}
+.nav-toggle span{
+  width:24px; height:2px; background:var(--silk-light); border-radius:2px;
+  transition:transform .35s var(--ease), opacity .3s;
+}
+.nav-toggle.open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2){ opacity:0; }
+.nav-toggle.open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  position:relative; min-height:100svh;
+  display:flex; align-items:center;
+  padding-block:calc(var(--s12) + var(--s6)) var(--s10);
+  background:
+    radial-gradient(ellipse 900px 600px at 85% 15%, rgba(44,50,97,.85), transparent 60%),
+    radial-gradient(ellipse 700px 500px at 10% 90%, rgba(59,23,52,.9), transparent 60%),
+    linear-gradient(160deg, var(--ink-deep) 0%, var(--amethyst) 55%, var(--violet) 100%);
+  color:var(--silk-light);
+  overflow:hidden;
+}
+.hero::before{
+  content:""; position:absolute; inset:0;
+  background-image:radial-gradient(rgba(201,177,164,.10) 1px, transparent 1px);
+  background-size:36px 36px;
+  mask-image:radial-gradient(ellipse 70% 60% at 50% 40%, black, transparent);
+  -webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 40%, black, transparent);
+}
+.hero-grid{
+  position:relative; display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:var(--s8); align-items:center;
+}
+.hero-copy .eyebrow{ color:var(--silk); }
+.hero-copy .eyebrow::before{ background:var(--silk); }
+.hero-copy h1{
+  font-size:clamp(2.6rem, 5.4vw, 4.4rem);
+  color:#fff; margin-bottom:var(--s3);
+}
+.hero-copy h1 em{
+  font-style:italic; font-weight:400; color:var(--silk);
+}
+.hero-copy p{
+  font-size:1.1rem; color:rgba(232,220,212,.8);
+  max-width:46ch; margin-bottom:var(--s5);
+}
+.hero-actions{ display:flex; flex-wrap:wrap; gap:var(--s2); margin-bottom:var(--s8); }
+
+.hero-stats{
+  display:flex; gap:var(--s6); flex-wrap:wrap;
+}
+.hero-stats .stat strong{
+  display:block; font-family:var(--font-display);
+  font-size:1.9rem; font-weight:500; color:#fff;
+}
+.hero-stats .stat span{
+  font-size:.82rem; letter-spacing:.12em; text-transform:uppercase;
+  color:rgba(201,177,164,.75);
+}
+
+.hero-visual{ position:relative; }
+.hero-visual .frame{
+  position:relative; border-radius:var(--radius-lg);
+  overflow:hidden; box-shadow:var(--shadow-lg);
+  aspect-ratio:4/5;
+}
+.hero-visual .frame img{
+  width:100%; height:100%; object-fit:cover;
+}
+.hero-visual .frame::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(200deg, rgba(42,28,88,.0) 55%, rgba(21,13,43,.45));
+}
+.hero-card{
+  position:absolute; left:-15%; bottom:9%;
+  display:flex; align-items:center; gap:var(--s2);
+  background:rgba(246,240,235,.96);
+  border-radius:var(--radius-sm);
+  padding:var(--s2) var(--s3);
+  box-shadow:var(--shadow);
+  color:var(--ink);
+  animation:float 6s ease-in-out infinite;
+}
+.hero-card img{
+  width:52px; height:52px; border-radius:10px; object-fit:cover;
+}
+.hero-card .t{ font-size:.9rem; font-weight:500; }
+.hero-card .s{ font-size:.78rem; color:var(--brick); font-weight:600; letter-spacing:.04em; }
+.hero-badge{
+  position:absolute; top:7%; right:-7%;
+  background:var(--brick); color:#fff;
+  border-radius:999px; padding:12px 22px;
+  font-size:.82rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase;
+  box-shadow:0 12px 32px rgba(192,63,71,.45);
+  animation:float 7s ease-in-out infinite reverse;
+}
+@keyframes float{
+  0%,100%{ transform:translateY(0); }
+  50%{ transform:translateY(-12px); }
+}
+
+/* ============================================================
+   GALLERY
+   ============================================================ */
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  grid-auto-rows:220px;
+  gap:var(--s3);
+}
+.g-card{
+  position:relative; border-radius:var(--radius); overflow:hidden;
+  box-shadow:var(--shadow-sm); cursor:pointer;
+}
+.g-card.tall{ grid-row:span 2; }
+.g-card.wide{ grid-column:span 2; }
+.g-card img{
+  width:100%; height:100%; object-fit:cover;
+  transition:transform .7s var(--ease);
+}
+.g-card::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(21,13,43,.72) 0%, transparent 48%);
+  opacity:.65; transition:opacity .5s var(--ease);
+}
+.g-card:hover img{ transform:scale(1.06); }
+.g-card:hover::after{ opacity:.9; }
+.g-card .g-label{
+  position:absolute; left:var(--s3); right:var(--s3); bottom:var(--s3); z-index:2;
+  color:#fff; transform:translateY(6px); transition:transform .5s var(--ease);
+}
+.g-card:hover .g-label{ transform:translateY(0); }
+.g-label .g-title{ font-family:var(--font-display); font-size:1.15rem; font-weight:500; }
+.g-label .g-cat{
+  font-size:.75rem; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--silk);
+}
+
+/* ============================================================
+   FEATURES
+   ============================================================ */
+.features{ background:#fff; }
+.features-grid{
+  display:grid; grid-template-columns:repeat(3, 1fr); gap:var(--s3);
+}
+.f-card{
+  background:var(--cream);
+  border:1px solid rgba(42,28,88,.06);
+  border-radius:var(--radius);
+  padding:var(--s5) var(--s4);
+  transition:transform .4s var(--ease), box-shadow .4s var(--ease), background .4s var(--ease);
+}
+.f-card:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--shadow);
+  background:#fff;
+}
+.f-icon{
+  width:56px; height:56px; border-radius:16px;
+  display:grid; place-items:center;
+  background:linear-gradient(140deg, var(--amethyst), var(--indigo));
+  color:var(--silk-light);
+  margin-bottom:var(--s3);
+  transition:transform .4s var(--ease);
+}
+.f-card:hover .f-icon{ transform:rotate(-6deg) scale(1.06); }
+.f-card:nth-child(3n+2) .f-icon{ background:linear-gradient(140deg, var(--brick), #a13038); }
+.f-card:nth-child(3n) .f-icon{ background:linear-gradient(140deg, var(--violet), var(--amethyst)); }
+.f-card h3{ font-size:1.2rem; color:var(--amethyst); margin-bottom:var(--s1); }
+.f-card p{ font-size:.95rem; color:#5c5470; }
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+.about-grid{
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:var(--s10); align-items:center;
+}
+.about-visual{ position:relative; }
+.about-visual .main{
+  border-radius:var(--radius-lg); overflow:hidden;
+  box-shadow:var(--shadow); aspect-ratio:4/5;
+}
+.about-visual .main img{ width:100%; height:100%; object-fit:cover; }
+.about-visual .inset{
+  position:absolute; right:-9%; bottom:-9%;
+  width:52%; aspect-ratio:1;
+  border-radius:var(--radius);
+  overflow:hidden; box-shadow:var(--shadow-lg);
+  border:6px solid var(--cream);
+}
+.about-visual .inset img{ width:100%; height:100%; object-fit:cover; }
+.about-visual .deco{
+  position:absolute; left:-7%; top:-7%; z-index:-1;
+  width:45%; aspect-ratio:1; border-radius:var(--radius-lg);
+  background:
+    radial-gradient(rgba(192,63,71,.5) 2px, transparent 2px);
+  background-size:18px 18px;
+}
+.about-copy h2{
+  font-size:clamp(1.9rem, 3.4vw, 2.75rem); color:var(--amethyst);
+  margin-bottom:var(--s3);
+}
+.about-copy > p{ color:#5c5470; margin-bottom:var(--s3); }
+.about-points{ list-style:none; margin-block:var(--s4) var(--s5); display:grid; gap:var(--s2); }
+.about-points li{
+  display:flex; gap:var(--s2); align-items:flex-start;
+  font-size:.98rem; color:#453d5c;
+}
+.about-points .check{
+  flex:0 0 auto; width:24px; height:24px; margin-top:2px;
+  border-radius:50%; display:grid; place-items:center;
+  background:rgba(192,63,71,.12); color:var(--brick);
+}
+.signature{
+  display:flex; align-items:center; gap:var(--s3); margin-top:var(--s5);
+}
+.signature img{
+  width:56px; height:56px; border-radius:50%; object-fit:cover;
+  box-shadow:var(--shadow-sm);
+}
+.signature .name{ font-weight:500; color:var(--amethyst); }
+.signature .role{ font-size:.85rem; color:#8b8298; }
+
+/* ============================================================
+   PORTFOLIO
+   ============================================================ */
+.portfolio{
+  background:
+    radial-gradient(ellipse 800px 500px at 90% 0%, rgba(44,50,97,.7), transparent 55%),
+    linear-gradient(180deg, var(--ink-deep), var(--amethyst) 130%);
+  color:var(--silk-light);
+}
+.portfolio .section-head h2{ color:#fff; }
+.portfolio .section-head p{ color:rgba(232,220,212,.7); }
+.masonry{
+  columns:3; column-gap:var(--s3);
+}
+.m-item{
+  position:relative; break-inside:avoid; margin-bottom:var(--s3);
+  border-radius:var(--radius); overflow:hidden;
+  box-shadow:0 12px 40px rgba(0,0,0,.35);
+}
+.m-item img{
+  width:100%; transition:transform .7s var(--ease), filter .5s;
+}
+.m-item::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(59,23,52,.85), transparent 55%);
+  opacity:0; transition:opacity .5s var(--ease);
+}
+.m-item:hover img{ transform:scale(1.05); }
+.m-item:hover::after{ opacity:1; }
+.m-meta{
+  position:absolute; left:var(--s3); bottom:var(--s3); z-index:2;
+  opacity:0; transform:translateY(10px);
+  transition:opacity .45s var(--ease), transform .45s var(--ease);
+}
+.m-item:hover .m-meta{ opacity:1; transform:translateY(0); }
+.m-meta .m-title{ font-family:var(--font-display); font-size:1.1rem; color:#fff; }
+.m-meta .m-tag{
+  font-size:.72rem; letter-spacing:.18em; text-transform:uppercase; color:var(--silk);
+}
+
+/* ============================================================
+   TESTIMONIALS
+   ============================================================ */
+.testi-grid{
+  display:grid; grid-template-columns:repeat(3, 1fr); gap:var(--s3);
+}
+.t-card{
+  background:#fff; border-radius:var(--radius);
+  padding:var(--s5) var(--s4);
+  box-shadow:var(--shadow-sm);
+  display:flex; flex-direction:column; gap:var(--s3);
+  border-top:3px solid transparent;
+  transition:transform .4s var(--ease), box-shadow .4s var(--ease), border-color .4s;
+}
+.t-card:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--shadow);
+  border-top-color:var(--brick);
+}
+.stars{ display:flex; gap:4px; color:var(--brick); }
+.t-card blockquote{
+  font-size:.98rem; color:#453d5c; font-style:italic; flex:1;
+}
+.t-person{ display:flex; align-items:center; gap:var(--s2); }
+.t-person img{
+  width:48px; height:48px; border-radius:50%; object-fit:cover;
+}
+.t-person .name{ font-weight:500; font-size:.95rem; color:var(--amethyst); }
+.t-person .role{ font-size:.8rem; color:#8b8298; }
+
+.rating-badge{
+  display:inline-flex; align-items:center; gap:var(--s2);
+  margin-top:var(--s3); padding:10px 26px;
+  background:#fff; border-radius:999px; box-shadow:var(--shadow-sm);
+}
+.rating-badge strong{
+  font-family:var(--font-display); font-weight:500;
+  font-size:1.35rem; color:var(--amethyst);
+}
+.rating-badge .rb-stars{ color:var(--brick); letter-spacing:2px; font-size:.95rem; }
+.rating-badge .rb-count{ font-size:.85rem; color:#8b8298; }
+
+/* ============================================================
+   CTA BAND
+   ============================================================ */
+.cta-band{
+  padding-block:0;
+}
+.cta-inner{
+  position:relative; overflow:hidden;
+  border-radius:var(--radius-lg);
+  background:linear-gradient(120deg, var(--violet), var(--brick) 140%);
+  color:#fff; text-align:center;
+  padding:var(--s10) var(--s4);
+  box-shadow:var(--shadow-lg);
+}
+.cta-inner::before{
+  content:""; position:absolute; inset:0;
+  background-image:radial-gradient(rgba(255,255,255,.14) 1px, transparent 1px);
+  background-size:28px 28px;
+}
+.cta-inner h2{
+  position:relative; font-size:clamp(1.8rem, 3.4vw, 2.6rem); margin-bottom:var(--s2);
+}
+.cta-inner p{
+  position:relative; color:rgba(255,255,255,.8);
+  max-width:52ch; margin:0 auto var(--s5);
+}
+.cta-inner .btn{ position:relative; background:#fff; color:var(--violet); }
+.cta-inner .btn:hover{ background:var(--silk-light); transform:translateY(-2px); }
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.contact-grid{
+  display:grid; grid-template-columns:1.1fr .9fr; gap:var(--s8);
+  align-items:start;
+}
+.contact-form{
+  background:#fff; border-radius:var(--radius-lg);
+  padding:var(--s6); box-shadow:var(--shadow-sm);
+}
+.contact-form h3{ font-size:1.5rem; color:var(--amethyst); margin-bottom:var(--s1); }
+.contact-form > p{ color:#8b8298; font-size:.95rem; margin-bottom:var(--s4); }
+.form-row{ display:grid; grid-template-columns:1fr 1fr; gap:var(--s2); }
+.field{ display:flex; flex-direction:column; gap:6px; margin-bottom:var(--s2); }
+.field label{
+  font-size:.8rem; font-weight:500; letter-spacing:.06em;
+  text-transform:uppercase; color:#6e6684;
+}
+.field input, .field textarea{
+  font-family:var(--font-body); font-size:.95rem; color:var(--ink);
+  padding:13px 16px; border-radius:var(--radius-sm);
+  border:1.5px solid rgba(42,28,88,.14);
+  background:var(--cream);
+  transition:border-color .3s, box-shadow .3s, background .3s;
+  resize:vertical;
+}
+.field input:focus, .field textarea:focus{
+  outline:none; border-color:var(--brick); background:#fff;
+  box-shadow:0 0 0 4px rgba(192,63,71,.12);
+}
+.contact-form .btn{ width:100%; justify-content:center; margin-top:var(--s1); }
+.form-note{
+  margin-top:var(--s2); text-align:center; font-size:.9rem;
+  color:var(--brick); font-weight:500;
+  opacity:0; transition:opacity .4s;
+}
+.form-note.show{ opacity:1; }
+
+.contact-side{ display:flex; flex-direction:column; gap:var(--s3); }
+.info-card{
+  display:flex; gap:var(--s2); align-items:flex-start;
+  background:#fff; border-radius:var(--radius);
+  padding:var(--s3); box-shadow:var(--shadow-sm);
+  transition:transform .35s var(--ease);
+}
+.info-card:hover{ transform:translateX(6px); }
+.info-icon{
+  flex:0 0 auto; width:44px; height:44px; border-radius:12px;
+  display:grid; place-items:center;
+  background:rgba(42,28,88,.08); color:var(--amethyst);
+}
+.info-card .t{ font-weight:500; color:var(--amethyst); font-size:.95rem; }
+.info-card .d{ font-size:.9rem; color:#6e6684; }
+
+.map-placeholder{
+  position:relative; border-radius:var(--radius); overflow:hidden;
+  aspect-ratio:16/9; box-shadow:var(--shadow-sm);
+  background:
+    linear-gradient(rgba(44,50,97,.06) 1.5px, transparent 1.5px),
+    linear-gradient(90deg, rgba(44,50,97,.06) 1.5px, transparent 1.5px),
+    linear-gradient(160deg, #ece3dc, #ded0c6);
+  background-size:32px 32px, 32px 32px, 100% 100%;
+}
+.map-placeholder iframe{
+  position:absolute; inset:0; width:100%; height:100%; border:0;
+}
+.map-pin{
+  position:absolute; left:50%; top:44%; transform:translate(-50%,-100%);
+  color:var(--brick);
+  filter:drop-shadow(0 6px 10px rgba(192,63,71,.4));
+  animation:pin 2.4s ease-in-out infinite;
+}
+@keyframes pin{
+  0%,100%{ transform:translate(-50%,-100%); }
+  50%{ transform:translate(-50%, calc(-100% - 8px)); }
+}
+.map-tag{
+  position:absolute; left:50%; bottom:12px; transform:translateX(-50%);
+  background:rgba(21,13,43,.85); color:var(--silk-light);
+  font-size:.78rem; letter-spacing:.08em; white-space:nowrap;
+  padding:8px 18px; border-radius:999px;
+  backdrop-filter:blur(4px);
+  text-decoration:none; transition:background .3s;
+}
+.map-tag:hover{ background:var(--brick); color:#fff; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer{
+  background:var(--ink-deep); color:rgba(232,220,212,.75);
+  padding-block:var(--s10) var(--s4);
+}
+.footer-grid{
+  display:grid; grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:var(--s6); padding-bottom:var(--s8);
+  border-bottom:1px solid rgba(201,177,164,.14);
+}
+.footer-brand .logo{ font-size:1.6rem; }
+.footer-brand p{
+  margin-top:var(--s2); font-size:.92rem; max-width:34ch;
+  color:rgba(232,220,212,.6);
+}
+.socials{ display:flex; gap:var(--s1); margin-top:var(--s3); }
+.socials a{
+  width:40px; height:40px; border-radius:50%;
+  display:grid; place-items:center;
+  color:var(--silk-light); background:rgba(201,177,164,.1);
+  transition:background .35s, transform .35s var(--ease), color .35s;
+}
+.socials a:hover{
+  background:var(--brick); color:#fff; transform:translateY(-4px);
+}
+.footer-col h4{
+  font-family:var(--font-body); font-weight:600; font-size:.85rem;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--silk);
+  margin-bottom:var(--s3);
+}
+.footer-col ul{ list-style:none; display:grid; gap:10px; }
+.footer-col a{
+  color:rgba(232,220,212,.65); text-decoration:none; font-size:.92rem;
+  transition:color .3s, padding-left .3s var(--ease);
+}
+.footer-col a:hover{ color:#fff; padding-left:6px; }
+.footer-bottom{
+  display:flex; justify-content:space-between; align-items:center;
+  flex-wrap:wrap; gap:var(--s2); padding-top:var(--s4);
+  font-size:.85rem; color:rgba(232,220,212,.45);
+}
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+.reveal{
+  opacity:0; transform:translateY(28px);
+  transition:opacity .8s var(--ease), transform .8s var(--ease);
+}
+.reveal.visible{ opacity:1; transform:none; }
+.reveal[data-delay="1"]{ transition-delay:.1s; }
+.reveal[data-delay="2"]{ transition-delay:.2s; }
+.reveal[data-delay="3"]{ transition-delay:.3s; }
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation:none !important; transition:none !important; }
+  html{ scroll-behavior:auto; }
+  .reveal{ opacity:1; transform:none; }
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1024px){
+  section{ padding-block:var(--s10); }
+  .hero-grid{ grid-template-columns:1fr; gap:var(--s8); }
+  .hero-visual{ max-width:480px; margin-inline:auto; }
+  .hero-card{ left:-4%; }
+  .hero-badge{ right:-2%; }
+  .gallery-grid{ grid-template-columns:repeat(2, 1fr); grid-auto-rows:200px; }
+  .features-grid{ grid-template-columns:repeat(2, 1fr); }
+  .about-grid{ grid-template-columns:1fr; gap:var(--s10); }
+  .about-visual{ max-width:480px; margin-inline:auto; }
+  .masonry{ columns:2; }
+  .testi-grid{ grid-template-columns:1fr; max-width:560px; margin-inline:auto; }
+  .contact-grid{ grid-template-columns:1fr; }
+  .footer-grid{ grid-template-columns:1fr 1fr; }
+}
+
+@media (max-width: 720px){
+  .nav-links{
+    position:fixed; inset:0; z-index:105;
+    flex-direction:column; justify-content:center; align-items:center;
+    gap:var(--s4);
+    background:rgba(21,13,43,.97);
+    backdrop-filter:blur(20px);
+    opacity:0; pointer-events:none;
+    transition:opacity .4s var(--ease);
+  }
+  .nav-links.open{ opacity:1; pointer-events:auto; }
+  .nav-links a{ font-size:1.3rem; }
+  .nav-toggle{ display:flex; }
+  .nav-cta .btn{ display:none; }
+
+  .hero-stats{ gap:var(--s4); }
+  .gallery-grid{ grid-template-columns:1fr; grid-auto-rows:240px; }
+  .g-card.wide{ grid-column:span 1; }
+  .features-grid{ grid-template-columns:1fr; }
+  .masonry{ columns:1; }
+  .form-row{ grid-template-columns:1fr; }
+  .footer-grid{ grid-template-columns:1fr; gap:var(--s5); }
+  .footer-bottom{ justify-content:center; text-align:center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header" id="header">
+  <div class="container nav-wrap">
+    <a href="#" class="logo">Seenu Tailor<em>.</em></a>
+    <nav>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#gallery">Our Work</a></li>
+        <li><a href="#features">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#portfolio">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-primary">Book a Fitting</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">Ladies &amp; Chudithar Tailoring · Puducherry</span>
+      <h1>A perfect fit, <em>stitched</em> with care.</h1>
+      <p>SEENU Tailor Shop crafts chudithars, blouses, and dresses of every
+        style — each one measured in person and stitched for a flawless fit,
+        right here on the Market Line in Velrampet, Puducherry.</p>
+      <div class="hero-actions">
+        <a href="#gallery" class="btn btn-primary">
+          See Our Work
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#about" class="btn btn-ghost">About Us</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><strong>4.7★</strong><span>Google Rating</span></div>
+        <div class="stat"><strong>13</strong><span>Google Reviews</span></div>
+        <div class="stat"><strong>9 PM</strong><span>Open Daily Till</span></div>
+      </div>
+    </div>
+    <div class="hero-visual reveal">
+      <div class="frame">
+        <img src="asset/img/chudithar1.webp" alt="Custom-stitched outfit from SEENU Tailor Shop" loading="eager">
+      </div>
+      <span class="hero-badge">Chudithar Best</span>
+      <div class="hero-card">
+        <img src="asset/img/chudithar2.webp" alt="Detail of hand-stitched fabric">
+        <div>
+          <div class="t">Chudithar Sets</div>
+          <div class="s">Our Speciality</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Our Work</span>
+      <h2>Stitched to fit you</h2>
+      <p>A glimpse of what leaves our counter every week — chudithars, blouses, party wear, and everyday fits.</p>
+    </div>
+    <div class="gallery-grid">
+      <figure class="g-card tall reveal">
+        <img src="asset/img/chudithar3.webp" alt="Evening gown in deep amethyst" loading="lazy">
+        <figcaption class="g-label"><div class="g-title">Chudithar Sets</div><div class="g-cat">Our Speciality</div></figcaption>
+      </figure>
+      <figure class="g-card reveal" data-delay="1">
+        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=620&h=460&q=80" onerror="this.onerror=null;this.src='https://picsum.photos/seed/gal-02/620/460';" alt="Tailored indigo blazer" loading="lazy">
+        <figcaption class="g-label"><div class="g-title">Formal Wear</div><div class="g-cat">Custom Stitching</div></figcaption>
+      </figure>
+      <figure class="g-card wide reveal" data-delay="2">
+        <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1240&h=460&q=80" onerror="this.onerror=null;this.src='https://picsum.photos/seed/gal-03/1240/460';" alt="Atelier workspace with fabric rolls" loading="lazy">
+        <figcaption class="g-label"><div class="g-title">Inside the Shop</div><div class="g-cat">Behind the Seams</div></figcaption>
+      </figure>
+      <figure class="g-card reveal" data-delay="1">
+        <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=620&h=460&q=80" onerror="this.onerror=null;this.src='https://picsum.photos/seed/gal-04/620/460';" alt="Silk scarf in almond tones" loading="lazy">
+        <figcaption class="g-label"><div class="g-title">Fabric Selection</div><div class="g-cat">Materials</div></figcaption>
+      </figure>
+      <figure class="g-card reveal" data-delay="2">
+        <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=620&h=460&q=80" onerror="this.onerror=null;this.src='https://picsum.photos/seed/gal-05/620/460';" alt="Brick-red midi dress" loading="lazy">
+        <figcaption class="g-label"><div class="g-title">Party Wear</div><div class="g-cat">Special Occasions</div></figcaption>
+      </figure>
+      <figure class="g-card wide reveal" data-delay="1">
+        <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=1240&h=460&q=80" onerror="this.onerror=null;this.src='https://picsum.photos/seed/gal-06/1240/460';" alt="Flowing violet skirt in motion" loading="lazy">
+        <figcaption class="g-label"><div class="g-title">Festive Stitching</div><div class="g-cat">New Designs</div></figcaption>
+      </figure>
+      <figure class="g-card reveal" data-delay="2">
+        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=620&h=460&q=80" onerror="this.onerror=null;this.src='https://picsum.photos/seed/gal-07/620/460';" alt="Atelier essentials in natural cotton" loading="lazy">
+        <figcaption class="g-label"><div class="g-title">Daily Wear</div><div class="g-cat">Comfort Fits</div></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FEATURES ================= -->
+<section class="features" id="features">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Why Seenu Tailor</span>
+      <h2>Why customers keep coming back</h2>
+      <p>Six simple promises behind every garment we stitch.</p>
+    </div>
+    <div class="features-grid">
+      <div class="f-card reveal">
+        <div class="f-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 4.8L20 8l-4 3.9.9 5.6L12 15l-4.9 2.5.9-5.6L4 8l5.6-1.2z"/></svg>
+        </div>
+        <h3>Chudithar Speciality</h3>
+        <p>Our signature craft — chudithar sets stitched with a flawless fit and unmatched comfort in every stitch.</p>
+      </div>
+      <div class="f-card reveal" data-delay="1">
+        <div class="f-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c4.5-3.2 8-6.7 8-11a8 8 0 10-16 0c0 4.3 3.5 7.8 8 11z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h3>Expert Tailoring</h3>
+        <p>Years of hands-on experience with every style — from everyday wear to special-occasion outfits.</p>
+      </div>
+      <div class="f-card reveal" data-delay="2">
+        <div class="f-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-9M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></svg>
+        </div>
+        <h3>Made-to-Measure</h3>
+        <p>Measurements taken in person at the shop, so every dress is cut and stitched to your exact size.</p>
+      </div>
+      <div class="f-card reveal">
+        <div class="f-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 22a5 5 0 01-2-4 7 7 0 017-7h0a7 7 0 017 7 5 5 0 01-2 4"/><path d="M12 11V2M9 5l3-3 3 3"/></svg>
+        </div>
+        <h3>On-Time Delivery</h3>
+        <p>Your order is ready when we promised it — festival rush or not, we plan the work so you never wait.</p>
+      </div>
+      <div class="f-card reveal" data-delay="1">
+        <div class="f-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M8 8V6a4 4 0 018 0v2"/></svg>
+        </div>
+        <h3>Alterations &amp; Repairs</h3>
+        <p>Re-fitting, resizing, and repairs done in-house. Bring any garment — we'd rather mend than replace.</p>
+      </div>
+      <div class="f-card reveal" data-delay="2">
+        <div class="f-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg>
+        </div>
+        <h3>Fair, Honest Pricing</h3>
+        <p>Clear rates quoted before we begin — quality stitching at prices the whole neighbourhood trusts.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div class="about-visual reveal">
+      <div class="deco"></div>
+      <div class="main">
+        <img src="https://images.unsplash.com/photo-1591195853828-11db59a44f6b?auto=format&fit=crop&w=760&h=950&q=80" onerror="this.onerror=null;this.src='https://picsum.photos/seed/about-main/760/950';" alt="Garment study laid out at SEENU Tailor Shop" loading="lazy">
+      </div>
+      <div class="inset">
+        <img src="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?auto=format&fit=crop&w=480&h=480&q=80" onerror="this.onerror=null;this.src='https://picsum.photos/seed/about-inset/480/480';" alt="Finished garments hanging on the atelier rail" loading="lazy">
+      </div>
+    </div>
+    <div class="about-copy reveal" data-delay="1">
+      <span class="eyebrow">Our Story</span>
+      <h2>A neighbourhood shop with an uncompromising eye</h2>
+      <p>SEENU Tailor Shop sits on the Market Line of Thennasalai Road in
+         Velrampet, Puducherry. We're deliberately small — one shop, one
+         experienced hand, and a belief that fit is everything.</p>
+      <p>Chudithars are our speciality, but we stitch all types of dresses —
+         everyday wear, office wear, and special-occasion outfits. Every
+         garment is measured, cut, and sewn right here in the shop.</p>
+      <ul class="about-points">
+        <li><span class="check"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Measurements taken in person for a perfect fit</li>
+        <li><span class="check"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Chudithars, blouses, salwars, and all types of ladies wear</li>
+        <li><span class="check"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Alterations and re-fitting handled in-house</li>
+      </ul>
+      <a href="#portfolio" class="btn btn-dark">
+        See Our Work
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <div class="signature">
+        <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=112&h=112&q=80" onerror="this.onerror=null;this.src='https://picsum.photos/seed/founder/112/112';" alt="Seenu, master tailor and proprietor">
+        <div>
+          <div class="name">Seenu</div>
+          <div class="role">Master Tailor &amp; Proprietor</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PORTFOLIO ================= -->
+<section class="portfolio" id="portfolio">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Gallery</span>
+      <h2>From the shop counter</h2>
+      <p>Selected pieces stitched for customers across Puducherry — every one measured, cut, and finished in-house.</p>
+    </div>
+    <div class="masonry">
+      <figure class="m-item reveal"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=640&h=840&q=80" onerror="this.onerror=null;this.src='https://picsum.photos/seed/look-01/640/840';" alt="Editorial look in violet tones" loading="lazy"><figcaption class="m-meta"><div class="m-title">Party Wear</div><div class="m-tag">Custom Stitch</div></figcaption></figure>
+      <figure class="m-item reveal" data-delay="1"><img src="asset/img/chudithar4.webp" alt="Cotton Chudithar" loading="lazy"><figcaption class="m-meta"><div class="m-title">Cotton Chudithar</div><div class="m-tag">Daily Wear</div></figcaption></figure>
+      <figure class="m-item reveal" data-delay="2"><img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=640&h=720&q=80" onerror="this.onerror=null;this.src='https://picsum.photos/seed/look-03/640/720';" alt="Structured coat in indigo" loading="lazy"><figcaption class="m-meta"><div class="m-title">Festive Kurta</div><div class="m-tag">Occasion Wear</div></figcaption></figure>
+      <figure class="m-item reveal"><img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=640&h=560&q=80" onerror="this.onerror=null;this.src='https://picsum.photos/seed/look-04/640/560';" alt="Almond silk drape study" loading="lazy"><figcaption class="m-meta"><div class="m-title">Silk Blouse</div><div class="m-tag">Wedding Season</div></figcaption></figure>
+      <figure class="m-item reveal" data-delay="1"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=640&h=880&q=80" onerror="this.onerror=null;this.src='https://picsum.photos/seed/look-05/640/880';" alt="Full-length evening look" loading="lazy"><figcaption class="m-meta"><div class="m-title">Anarkali Set</div><div class="m-tag">Evening Wear</div></figcaption></figure>
+      <figure class="m-item reveal" data-delay="2"><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=640&h=460&q=80" onerror="this.onerror=null;this.src='https://picsum.photos/seed/look-06/640/460';" alt="Boutique interior with garment displays" loading="lazy"><figcaption class="m-meta"><div class="m-title">The Shop Floor</div><div class="m-tag">Velrampet</div></figcaption></figure>
+      <figure class="m-item reveal"><img src="https://images.unsplash.com/photo-1520975954732-35dd22299614?auto=format&fit=crop&w=640&h=760&q=80" onerror="this.onerror=null;this.src='https://picsum.photos/seed/look-07/640/760';" alt="Model in flowing wrap dress" loading="lazy"><figcaption class="m-meta"><div class="m-title">Gents Kurta</div><div class="m-tag">Custom Fit</div></figcaption></figure>
+      <figure class="m-item reveal" data-delay="1"><img src="https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=640&h=520&q=80" onerror="this.onerror=null;this.src='https://picsum.photos/seed/look-08/640/520';" alt="Studio still life of accessories" loading="lazy"><figcaption class="m-meta"><div class="m-title">Fabric Wall</div><div class="m-tag">Materials</div></figcaption></figure>
+      <figure class="m-item reveal" data-delay="2"><img src="https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=640&h=680&q=80" onerror="this.onerror=null;this.src='https://picsum.photos/seed/look-09/640/680';" alt="Backstage moment before the show" loading="lazy"><figcaption class="m-meta"><div class="m-title">Work in Progress</div><div class="m-tag">Every Day</div></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Google Reviews</span>
+      <h2>What our customers say</h2>
+      <p>Real reviews from our Google Maps listing.</p>
+      <div class="rating-badge"><strong>4.7</strong><span class="rb-stars">★★★★★</span><span class="rb-count">13 Google reviews</span></div>
+    </div>
+    <div class="testi-grid">
+      <article class="t-card reveal">
+        <div class="stars" aria-label="5 out of 5 stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+        </div>
+        <blockquote>"Expert tailoring for every style — from everyday wear to special occasions. Specializing in Chudithars, we ensure a flawless fit and unmatched comfort with every stitch."</blockquote>
+        <div class="t-person">
+          <img src="https://i.pravatar.cc/96?img=47" onerror="this.onerror=null;this.src='https://picsum.photos/seed/avatar-01/96/96';" alt="Avatar of Sivaranjani N">
+          <div>
+            <div class="name">Sivaranjani N</div>
+            <div class="role">Google Review · a year ago</div>
+          </div>
+        </div>
+      </article>
+      <article class="t-card reveal" data-delay="1">
+        <div class="stars" aria-label="5 out of 5 stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+        </div>
+        <blockquote>"Provides the best fit and expert tailoring for all types of dresses, with a specialty in Chudithars. Your go-to tailor for perfect stitching and comfort."</blockquote>
+        <div class="t-person">
+          <img src="https://i.pravatar.cc/96?img=12" onerror="this.onerror=null;this.src='https://picsum.photos/seed/avatar-02/96/96';" alt="Avatar of Jayakumar SJ">
+          <div>
+            <div class="name">Jayakumar SJ</div>
+            <div class="role">Google Review · a year ago</div>
+          </div>
+        </div>
+      </article>
+      <article class="t-card reveal" data-delay="2">
+        <div class="stars" aria-label="5 out of 5 stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+        </div>
+        <blockquote>"Great service and perfect fitting — highly recommend this tailor shop!"</blockquote>
+        <div class="t-person">
+          <img src="https://i.pravatar.cc/96?img=59" onerror="this.onerror=null;this.src='https://picsum.photos/seed/avatar-03/96/96';" alt="Avatar of Venkatesh S">
+          <div>
+            <div class="name">Venkatesh S</div>
+            <div class="role">Google Review · a year ago</div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA BAND ================= -->
+<section class="cta-band">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <h2>Festive season around the corner?</h2>
+      <p>Bring your fabric and your favourite design — we'll take your measurements in minutes and have it stitched, fitted, and ready on time.</p>
+      <a href="tel:+917200212911" class="btn">
+        Call 072002 12911
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Get in Touch</span>
+      <h2>Visit the shop</h2>
+      <p>Walk in with your fabric, call ahead, or send a note — we're on the Market Line at Thennasalai Road, Velrampet, open daily until 9 pm.</p>
+    </div>
+    <div class="contact-grid">
+      <form class="contact-form reveal" id="contactForm" novalidate>
+        <h3>Send us a note</h3>
+        <p>We reply within one working day.</p>
+        <div class="form-row">
+          <div class="field">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" placeholder="Chudithar stitching, alteration, party wear…">
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Tell us what you have in mind" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">
+          Send Message
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>
+        </button>
+        <div class="form-note" id="formNote">Thank you — your note is on its way. We'll reply shortly.</div>
+      </form>
+
+      <div class="contact-side">
+        <div class="info-card reveal">
+          <div class="info-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c4.5-3.2 8-6.7 8-11a8 8 0 10-16 0c0 4.3 3.5 7.8 8 11z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="t">SEENU Tailor Shop</div>
+            <div class="d">Thennasalai Road, Market Line, Vallalar Nagar,<br>Nainar Mandapam, Velrampet, Puducherry 605004</div>
+          </div>
+        </div>
+        <div class="info-card reveal" data-delay="1">
+          <div class="info-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.13.96.36 1.9.7 2.8a2 2 0 01-.45 2.1L8.1 9.9a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0122 16.9z"/></svg>
+          </div>
+          <div>
+            <div class="t">Phone</div>
+            <div class="d"><a href="tel:+917200212911" style="color:inherit;text-decoration:none;">072002 12911</a><br>Open daily · Closes 9:00 pm</div>
+          </div>
+        </div>
+        <div class="info-card reveal" data-delay="2">
+          <div class="info-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
+          </div>
+          <div>
+            <div class="t">Find Us</div>
+            <div class="d">Plus code: WR65+72 Puducherry<br>Market Line, near Vallalar Nagar</div>
+          </div>
+        </div>
+        <div class="map-placeholder reveal" data-delay="2">
+          <iframe
+            src="https://www.google.com/maps?q=SEENU%20Tailor%20Shop%2C%20Thennasalai%20Road%2C%20Velrampet%2C%20Puducherry%20605004&z=16&output=embed"
+            title="Map showing SEENU Tailor Shop, Velrampet, Puducherry"
+            loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <a class="map-tag" href="https://www.google.com/maps?q=SEENU+Tailor+Shop,+Thennasalai+Road,+Velrampet,+Puducherry+605004" target="_blank" rel="noopener">SEENU Tailor Shop · Open in Google Maps ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#top" class="logo">Seenu Tailor<em>.</em></a>
+        <p>SEENU Tailor Shop — Chudithar Best. A neighbourhood tailor on Thennasalai Road, Velrampet, stitching chudithars, blouses, and custom fits for all of Puducherry.</p>
+        <div class="socials">
+          <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="Pinterest"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 20l3-9M9.5 8.5a3.5 3.5 0 116 2.5c-1 1.5-2.5 2-3.5 1.5"/></svg></a>
+          <a href="#" aria-label="X"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l16 16M20 4L4 20"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9.5l5 2.5-5 2.5z" fill="currentColor"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#gallery">Our Work</a></li>
+          <li><a href="#portfolio">Gallery</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#contact">Book a Fitting</a></li>
+          <li><a href="#features">Chudithar Stitching</a></li>
+          <li><a href="#features">Alterations &amp; Repairs</a></li>
+          <li><a href="#features">Blouse &amp; Party Wear</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Practical</h4>
+        <ul>
+          <li><a href="#contact">Opening Hours</a></li>
+          <li><a href="tel:+917200212911">072002 12911</a></li>
+          <li><a href="#contact">Directions</a></li>
+          <li><a href="https://maps.google.com/?q=SEENU+Tailor+Shop,+Velrampet,+Puducherry" target="_blank" rel="noopener">View on Google Maps</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> SEENU Tailor Shop. All rights reserved.</span>
+      <span>Stitched with care in Puducherry.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* Sticky header */
+  var header = document.getElementById("header");
+  var onScroll = function(){
+    header.classList.toggle("scrolled", window.scrollY > 40);
+  };
+  window.addEventListener("scroll", onScroll, { passive:true });
+  onScroll();
+
+  /* Mobile navigation */
+  var toggle = document.getElementById("navToggle");
+  var links  = document.getElementById("navLinks");
+  toggle.addEventListener("click", function(){
+    var open = links.classList.toggle("open");
+    toggle.classList.toggle("open", open);
+    toggle.setAttribute("aria-expanded", open);
+    document.body.style.overflow = open ? "hidden" : "";
+  });
+  links.querySelectorAll("a").forEach(function(a){
+    a.addEventListener("click", function(){
+      links.classList.remove("open");
+      toggle.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
+    });
+  });
+
+  /* Scroll-reveal */
+  var revealEls = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){
+          e.target.classList.add("visible");
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold:.12, rootMargin:"0px 0px -40px 0px" });
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add("visible"); });
+  }
+
+  /* Active nav link while scrolling */
+  var sections = document.querySelectorAll("section[id]");
+  var navAnchors = links.querySelectorAll("a");
+  var spy = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting){
+        navAnchors.forEach(function(a){
+          a.classList.toggle("active", a.getAttribute("href") === "#" + e.target.id);
+        });
+      }
+    });
+  }, { rootMargin:"-45% 0px -50% 0px" });
+  sections.forEach(function(s){ spy.observe(s); });
+
+  /* Contact form (demo submit) */
+  var form = document.getElementById("contactForm");
+  var note = document.getElementById("formNote");
+  form.addEventListener("submit", function(ev){
+    ev.preventDefault();
+    if (!form.checkValidity()){
+      form.reportValidity();
+      return;
+    }
+    note.classList.add("show");
+    form.reset();
+    setTimeout(function(){ note.classList.remove("show"); }, 5000);
+  });
+
+  /* Footer year */
+  document.getElementById("year").textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
